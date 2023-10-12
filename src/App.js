@@ -1,9 +1,9 @@
 import './App.css';
 
-function App() {
+function App({symbol}) {
   return (
     // <div className="App">
-      <>hey</>
+      <>{symbol}</>
       
     // </div>
   );

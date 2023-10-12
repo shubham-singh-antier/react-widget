@@ -901,11 +901,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 require("./App.css");
-function App() {
+function App(_ref) {
+  var symbol = _ref.symbol;
   return (
     /*#__PURE__*/
     // <div className="App">
-    React.createElement(React.Fragment, null, "hey")
+    React.createElement(React.Fragment, null, symbol)
 
     // </div>
   );
@@ -1036,7 +1037,12 @@ var _App = _interopRequireDefault(require("./App"));
 var _reportWebVitals = _interopRequireDefault(require("./reportWebVitals"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var root = _client.default.createRoot(document.getElementById('root'));
-root.render( /*#__PURE__*/_react.default.createElement(_react.default.StrictMode, null, /*#__PURE__*/_react.default.createElement(_App.default, null)));
+var widgetDivs = document.querySelectorAll('.nicoraynaud-finance-widget');
+widgetDivs.forEach(function (div) {
+  root.render( /*#__PURE__*/_react.default.createElement(_react.default.StrictMode, null, /*#__PURE__*/_react.default.createElement(_App.default, {
+    symbol: div.dataset.symbol
+  })));
+});
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
